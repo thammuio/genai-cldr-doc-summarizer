@@ -1,0 +1,71 @@
+name: GenAI Summarizer for Cloudera Docs
+description: |
+  GenAI Summarizer for Cloudera Docs hosted on Cloudera CML
+
+author: Cloudera Inc.
+specification_version: 0.1
+prototype_version: 0.1
+date: "2023-11-28"
+
+environment_variables:
+  HNSWLIB_NO_NATIVE:
+    default: "1"
+    description: >-
+      HNSWlib
+  OPENAI_API_KEY:
+    default: ""
+    description: >-
+      OpenAI API Key
+
+# runtimes:
+#   - editor: JupyterLab
+#     kernel: Python 3.9
+#     edition: Nvidia GPU
+
+tasks:
+  # - type: run_session
+  #   name: Validate GPU Availibility
+  #   script: session/resource-validation/check_gpu_resources.py
+  #   short_summary: Check for GPU availibility. 
+  #   long_summary: Check GPUs are enabled on this workspace and are currently schedulable.
+  #   kernel: python3
+  #   cpu: 2
+  #   memory: 8
+
+  # - type: run_session
+  #   name: Validate GPU Capability
+  #   script: session/resource-validation/check_gpu_capability.py
+  #   short_summary: Check for GPU capability. 
+  #   long_summary: Check GPU device supports the CUDA capabilities required.
+  #   kernel: python3
+  #   cpu: 2
+  #   memory: 16
+  #   gpu: 1
+
+  - type: run_session
+    name: Install SetupTools
+    script: session/install-deps/install_setup_tools.py
+    short_summary: Install SetupTools
+    kernel: python3
+    cpu: 2
+    memory: 16
+
+  - type: run_session
+    name: Install Dependencies
+    script: session/install-deps/install_dependencies.py
+    short_summary: Install Dependencies
+    kernel: python3
+    cpu: 2
+    memory: 16
+
+  - type: start_application
+    name: GenAI Doc Summarizer
+    subdomain: cmlllm
+    script: src/app.py
+    short_summary: Start GenAI Doc Summarizer
+    long_summary: GenAI Doc Summarizer
+    cpu: 4
+    memory: 32
+    gpu: 1
+    environment_variables:
+      TASK_TYPE: START_APPLICATION

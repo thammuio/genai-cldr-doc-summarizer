@@ -1,0 +1,17 @@
+name: Cloudera
+
+entries:
+  - title: GenAI Summarizer for Cloudera Docs
+    label: genai-cldr-doc-summarizer
+    short_description: GenAI Summarizer for Cloudera Docs hosted on Cloudera CML
+    long_description: >-
+      GenAI LLM for Cloudera Documentation Summary
+    image_path: >-
+      https://raw.githubusercontent.com/thammuio/genai-cldr-doc-summarizer/main/images/cldr_genai_docs.png
+    tags:
+      - Cloudera
+      - GenAI
+      - DocSummarizer
+      - OpenAI
+    git_url: "https://github.com/thammuio/genai-cldr-doc-summarizer.git"
+    is_prototype: true        
