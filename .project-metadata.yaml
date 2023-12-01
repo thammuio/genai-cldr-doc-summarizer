@@ -17,7 +17,7 @@ environment_variables:
     description: >-
       OpenAI API Key
 
-# runtimes:
+runtimes:
   - editor: JupyterLab
     kernel: Python 3.9
     edition: Standard
