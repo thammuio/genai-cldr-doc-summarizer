@@ -18,8 +18,9 @@ environment_variables:
       OpenAI API Key
 
 # runtimes:
-#   - editor: JupyterLab
-#     kernel: Python 3.9
+  - editor: JupyterLab
+    kernel: Python 3.9
+    edition: Standard
 #     edition: Nvidia GPU
 
 tasks:
